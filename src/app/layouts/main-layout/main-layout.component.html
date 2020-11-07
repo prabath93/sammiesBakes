@@ -1,1 +1,38 @@
-<p>main-layout works!</p>
+<header id="nav-bar-header" class="">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="index"><h2>Sammy's <em>Bakes</em></h2></a>
+        <button 
+            class="navbar-toggler" 
+            type="button"
+            data-target="#navbarResponsive" 
+            [attr.aria-expanded]="!isCollapsed" 
+            (click)="isCollapsed = !isCollapsed"
+            >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive" [collapse]="isCollapsed">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item" [ngClass]="{'active':(activeHeader == 'HOME')}">
+              <a class="nav-link" href="home">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li> 
+            <li class="nav-item" [ngClass]="{'active':(activeHeader == 'PRODUCT')}">
+              <a class="nav-link" href="products">Our Products</a>
+            </li>
+            <li class="nav-item" [ngClass]="{'active':(activeHeader == 'ABOUT')}">
+              <a class="nav-link" href="about">About Us</a>
+            </li>
+            <li class="nav-item" [ngClass]="{'active':(activeHeader == 'CONTACT')}">
+              <a class="nav-link" href="contact">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</header>
+
+<div class="main-layout-body">
+    <router-outlet></router-outlet>
+</div>
